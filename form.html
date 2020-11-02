@@ -1,0 +1,53 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<head>
+    <title> 05211940000129</title>>
+    <style>
+        .label {
+            float: left;
+            width: 120px;
+        }
+
+        .infobox {
+            width: 200px; 
+        }
+
+        .error {
+            color: red;
+            padding-left: 10px;
+        }
+
+        div {
+            padding: 5px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('.error').hide();                                              // menyembunyikan pesan error
+            $('.submit').click(function (event) {                            // memunculkan tombol submit 
+                $('.infobox').each(function () {                             // menjalankan setiap elemen yang sama
+                    var data = $(this).val();                                // mengembalikan atau mengeset nilai atribut dari elemen yang dipilih
+                    var len = data.length;                                   // jumlah dari panjangnya karakter
+                    if (len < 1) {                                           // jika nilai len kurang dari satu maka pesan eror muncul
+                        $(this).parent().find('.error').show();              // mencari dan menampilkan pesan error
+                    }
+                    else {                                                   // jika nilai len tidak kurang dari satu maka pesan eror tidak muncul
+                        $(this).parent().find('.error').hide();              // mencari dan menyembunyikan pesan error
+                    }
+                });
+                event.preventDefault();                                      // menghentikan tindakan default terjadi
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div><span class="label">Nama</span><input type="text" class="infobox" name="Nama" /><span class="error">
+            harus diisi</span></div>
+    <div><span class="label">Pin</span><input type="password" class="infobox" name="Pin" /><span class="error">
+            harus diisi</span></div>
+    <input class="submit" type="submit" value="Submit">
+</body>
+
+</html>>
